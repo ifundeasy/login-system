@@ -1,0 +1,40 @@
+{
+  "name": "login-system",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "debug": "~0.7.4",
+    "ejs": "^2.2.4",
+    "express": "~4.2.0",
+    "express-session": "^1.8.1",
+    "moment": "^2.8.3",
+    "morgan": "~1.0.0",
+    "node-persist": "0.0.6"
+  },
+  "description": "How to make login-management on your expressjs-application when you do instance expressjs on each child of the process on node-cluster?",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rappresent/login-system.git"
+  },
+  "keywords": [
+    "login-system",
+    "session",
+    "management",
+    "expressjs",
+    "cookie",
+    "cluster"
+  ],
+  "author": "Afa Rappresent",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rappresent/login-system/issues"
+  },
+  "homepage": "https://github.com/rappresent/login-system#readme"
+}
