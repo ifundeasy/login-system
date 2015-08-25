@@ -1,4 +1,2 @@
-module.exports = function ($) {
-	require('./pages')($);
-	require('./api')($);
-};
+require('./pages');
+//todo : register your api-routes-file (maybe) here

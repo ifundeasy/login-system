@@ -1,31 +1,43 @@
-var storage = require('node-persist');
-var hash = require('./libs/hash').hash;
-var username = process.argv[2];
-var password = process.argv[3];
-var account;
+var username = process.argv[2],
+	password = process.argv[3],
+	type = process.argv[4];
 
-if (!username && !password) process.exit(1);
+if (!(username && password)) process.exit(1);
 
-storage.initSync({
-	dir : __dirname + '/data',
-	stringify : JSON.stringify,
-	parse : JSON.parse,
-	encoding : 'utf8',
-	logging : false,  //can also be custom logging function
-	continuous : true,
-	interval : false,
-	ttl : false //can be true for 24h default or a number in MILLISECONDS
+var db, dbname = 'users', data = {};
+var crypt = require('./libs/crypt');
+var lmdb = require('node-lmdb');
+var env = new lmdb.Env();
+
+env.open({
+	path: __dirname + "/data",
+	mapSize : 2*1024*1024*1024
 });
-
-account = storage.getItemSync('account') || {};
-
-hash(password, function (err, salt, hash) {
-	if (err) throw err;
-	account[username] = {
-		username : username
-	};
-	account[username].salt = salt;
-	account[username].hash = hash.toString();
-	account[username].session = {};
-	storage.setItemSync('account', account)
+db = env.openDbi({
+	name: dbname,
+	create: true
 });
+var get = function (key) {
+	var txn = env.beginTxn();
+	var ret = txn.getString(db, key);
+
+	txn.commit();
+	return JSON.parse(ret);
+};
+var put = function (key, value) {
+	var txn = env.beginTxn();
+	txn.putString(db, key, JSON.stringify(value));
+	txn.commit();
+};
+
+data[username] = {
+	type : type || 'general',
+	hash : crypt.en(password),
+	session : {}
+};
+put(username, data[username]);
+
+console.log(get(username));
+
+db.close();
+env.close();

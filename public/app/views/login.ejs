@@ -5,29 +5,17 @@
 	<title><%= locals.settings.title %></title>
 </head>
 <body>
-<form action="" method="post">
-
-
-</form>
-
-<form action="login" method="POST" class="form-horizontal" role="form">
+<form action="auth" method="POST" class="form-horizontal" role="form">
 	<div class="form-group">
 		<legend>Login</legend>
-		<input type="hidden" name="ip">
-		<input type="hidden" name="pc">
-		<input type="hidden" name="hora">
-		<input type="hidden" name="fecha">
 		<table>
-			<tr>
-				<td>User</td>
+			<tr><td>User</td>
 				<td><input type="text" name="username" value="rappresent"></td>
 			</tr>
-			<tr>
-				<td>Password</td>
+			<tr><td>Password</td>
 				<td><input type="password" name="password" value="bangsat"></td>
 			</tr>
-			<tr>
-				<td>Rememeber me</td>
+			<tr><td>Rememeber me</td>
 				<td><input type="checkbox" name="remember" value="1" checked></td>
 			</tr>
 		</table>

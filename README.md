@@ -13,16 +13,20 @@ $ sudo npm install
 ```
 ## How to use
 ##### Start the web application
+Before run the server, plase make sure you have a account for login!
+
 ```sh
 $ node server.js
 ```
 ##### Create user
 ```sh
-$ node createuser.js your_username your_password
+$ node createuser.js your_username your_password user_type
 ```
 ##### Delete session data
 ```sh
-$ node clearsession.js
+$ node clearsession.js [optional]
 ```
+
+[optional] : you can change this with 'all' (clear all session)
 ## License
 MIT

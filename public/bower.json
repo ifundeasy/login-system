@@ -1,0 +1,26 @@
+{
+  "name": "WebApp",
+  "version": "0.0.1",
+  "authors": [
+    "Afa Rappresent <mail.vudin@gmail.com>"
+  ],
+  "description": "Client side application",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "doT": "*",
+    "modernizr": "*",
+    "jquery": "*",
+    "bootstrap": "*",
+    "dimple": "*",
+    "bootswatch": "*",
+    "backbone": "*"
+  }
+}

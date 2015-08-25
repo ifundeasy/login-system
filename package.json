@@ -8,13 +8,15 @@
   "dependencies": {
     "body-parser": "~1.0.0",
     "cookie-parser": "~1.0.1",
-    "debug": "~0.7.4",
-    "ejs": "^2.2.4",
+    "crypto": "0.0.3",
+    "ejs": "^1.0.0",
+    "errorhandler": "^1.4.2",
     "express": "~4.2.0",
     "express-session": "^1.8.1",
-    "moment": "^2.8.3",
+    "jade": "^1.11.0",
     "morgan": "~1.0.0",
-    "node-persist": "0.0.6"
+    "node-lmdb": "^0.3.0",
+    "serve-favicon": "^2.3.0"
   },
   "description": "How to make login-management on your expressjs-application when you do instance expressjs on each child of the process on node-cluster?",
   "main": "server.js",
